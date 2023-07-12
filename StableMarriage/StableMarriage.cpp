@@ -61,7 +61,7 @@ int main() {
         cout << "Enter " << i + 1 << "th proposer's \n";
         for(int j = 0; j < n; j++) {
             cin >> k; 
-            preferProposer[i][j] = k -1;
+            preferProposer[i][j] = k - 1;
         }
     }
 

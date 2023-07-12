@@ -1,5 +1,3 @@
-from random import choice
-
 class Vertex:
     def __init__(self, name):
         self.id = name
@@ -65,7 +63,7 @@ class Graph:
         v = self.vertices[0]
         while v not in visited:
             visited.add(v)
-            v = choice(v.outGoing)
+            v = v.outGoing[0]
         starting_vertex = (v.outGoing[0])
         while starting_vertex not in cycle:
             cycle.add(starting_vertex)
@@ -88,7 +86,17 @@ for i in range(n):
     data_object[vertex.id]["nextPointer"] += 1
 
 def find_next_preference(vertex):
+    while (searchInConnectedArray(connected_components, (data_object[vertex.id]["pref"])[data_object[vertex.id]["nextPointer"]] )):
+        data_object[vertex.id]["nextPointer"] += 1
     return ((data_object[vertex.id]["pref"])[data_object[vertex.id]["nextPointer"]])
+
+
+def searchInConnectedArray(array, key):
+    for i in range(len(array)):
+        a, b = array[i].split(" => ")
+        if (a == str(key)):
+            return 1
+    return 0
 
 
 connected_components = []
